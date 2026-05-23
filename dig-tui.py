@@ -8,7 +8,7 @@ from textual.widgets import Header, Footer, Input, Select, Button, RichLog
 from textual.containers import Horizontal
 from textual.binding import Binding
 
-SETTINGS_FILE = Path.home() / ".dig_tui_settings.json"
+SETTINGS_FILE = Path.home() / ".dig-tui-settings.json"
 
 RECORD_TYPES = [
     ("A", "A"), ("AAAA", "AAAA"), ("CNAME", "CNAME"),

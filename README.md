@@ -1,10 +1,10 @@
-# dig_tui
+# dig-tui
 
 A modern, fast Terminal User Interface (TUI) for the standard Unix `dig` command, built with Python and [Textual](https://github.com/Textualize/textual).
 
-![Dig TUI Screenshot](docs/screenshot.png) *(Note: Add a screenshot of the app here before publishing)*
+*A screenshot of the app is pending.*
 
-`dig_tui` provides an interactive way to perform DNS lookups, switch between popular nameservers (Cloudflare, Google, OpenDNS, etc.), and export the structured results to JSON, CSV, or raw text—all without leaving your terminal.
+`dig-tui` provides an interactive way to perform DNS lookups, switch between popular nameservers (Cloudflare, Google, OpenDNS, etc.), and export the structured results to JSON, CSV, or raw text—all without leaving your terminal.
 
 ## Features
 
@@ -43,8 +43,8 @@ graph TD;
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/dig_tui.git
-   cd dig_tui
+   git clone https://github.com/junxit/dig-tui.git
+   cd dig-tui
    ```
 
 2. Create a virtual environment (recommended):
@@ -63,7 +63,7 @@ graph TD;
 Run the application directly:
 
 ```bash
-python dig_tui.py
+python dig-tui.py
 ```
 
 ### Keyboard Shortcuts

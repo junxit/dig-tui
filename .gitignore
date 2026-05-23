@@ -14,7 +14,7 @@ ENV/
 dig_output.txt
 dig_output.json
 dig_output.csv
-.dig_tui_settings.json
+.dig-tui-settings.json
 
 # Textual Dev
 *.log
