@@ -10,6 +10,13 @@ env/
 venv/
 ENV/
 
+# Build & test artifacts
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
 # Application specific
 dig_output.txt
 dig_output.json
