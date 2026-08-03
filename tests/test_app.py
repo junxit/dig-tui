@@ -120,6 +120,27 @@ class TestS2MarkupIsNotInterpreted:
         async with app.run_test():
             assert app.query_one("#output", RichLog).markup is False
 
+    async def test_s2_no_hyperlink_is_created(self):
+        """The property that matters: no OSC 8 link reaches the terminal.
+
+        Asserted over rendered segment styles rather than substrings, because the log wraps
+        and a tag can straddle two strips. Flipping ``markup`` back to True makes this fail
+        with link='https://phish.example', so it distinguishes fixed from vulnerable.
+        """
+        app = DigTUI()
+        async with app.run_test() as pilot:
+            stub_dig(app, MARKUP_PAYLOAD)
+            app.query_one("#domain", Input).value = "evil.com"
+            await pilot.click("#run_btn")
+            await pilot.pause()
+            links = [
+                segment.style.link
+                for strip in app.query_one("#output", RichLog).lines
+                for segment in strip._segments
+                if segment.style and segment.style.link
+            ]
+            assert links == [], f"markup was interpreted into hyperlinks: {links}"
+
     async def test_s2_link_payload_renders_literally(self):
         app = DigTUI()
         async with app.run_test() as pilot:
@@ -128,8 +149,7 @@ class TestS2MarkupIsNotInterpreted:
             await pilot.click("#run_btn")
             await pilot.pause()
             rendered = "\n".join(strip.text for strip in app.query_one("#output", RichLog).lines)
-            assert "[link=https://phish.example]" in rendered
-            assert "[/link]" in rendered
+            assert "[link=" in rendered, "markup tags were stripped instead of shown literally"
 
     async def test_s2_broken_markup_does_not_suppress_output(self):
         """Before the fix, MarkupError was swallowed and the response vanished."""

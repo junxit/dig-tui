@@ -21,9 +21,7 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Install dig
-        run: sudo apt-get update && sudo apt-get install -y dnsutils
-
+      # No `dig` install step: the suite stubs the subprocess call, so no test shells out.
       - name: Install project
         run: uv sync --extra dev --python ${{ matrix.python-version }}
 
