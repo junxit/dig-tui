@@ -108,6 +108,10 @@ uv run ruff format .   # format
 The codebase splits into `src/dig_tui/core.py` (pure logic — validation, command building,
 parsing, exports; fully unit tested) and `src/dig_tui/app.py` (the Textual UI).
 
+Dependencies and the build backend are pinned to exact versions in `pyproject.toml`, and
+`uv.lock` pins the full tree. To upgrade one, change its pin, run `uv lock`, and rerun the checks
+above on each Python version in the CI matrix. [CLAUDE.md](CLAUDE.md) has the full policy.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
