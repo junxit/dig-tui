@@ -38,7 +38,7 @@ graph TD;
 
 ## Prerequisites
 
-- **Python 3.9+**
+- **Python 3.10+**
 - **`dig`:** The standard domain information groper utility must be installed on your system.
   - *Ubuntu/Debian:* `sudo apt install dnsutils`
   - *macOS:* Pre-installed (or `brew install bind`)
