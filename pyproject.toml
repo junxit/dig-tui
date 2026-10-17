@@ -1,5 +1,5 @@
 [build-system]
-# Exact pins (see CLAUDE.md). hatchling 1.28 dropped Python 3.9, so 3.9 builds use 1.27.0.
+# Exact pins. hatchling 1.28 dropped Python 3.9, so 3.9 builds use 1.27.0.
 requires = [
     "hatchling==1.32.4; python_version >= '3.10'",
     "hatchling==1.27.0; python_version < '3.10'",
@@ -24,7 +24,7 @@ classifiers = [
     "Topic :: System :: Networking",
 ]
 
-# Exact pins (see CLAUDE.md): nothing changes version unless a pin here is edited on purpose.
+# Exact pins: nothing changes version unless a pin here is edited on purpose.
 # rich is declared even though textual pulls it in, because app.py imports it directly and the
 # S2 protections depend on its markup handling.
 dependencies = ["textual==8.2.8", "rich==15.0.0"]

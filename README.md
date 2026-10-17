@@ -110,7 +110,7 @@ parsing, exports; fully unit tested) and `src/dig_tui/app.py` (the Textual UI).
 
 Dependencies and the build backend are pinned to exact versions in `pyproject.toml`, and
 `uv.lock` pins the full tree. To upgrade one, change its pin, run `uv lock`, and rerun the checks
-above on each Python version in the CI matrix. [CLAUDE.md](CLAUDE.md) has the full policy.
+above on each Python version in the CI matrix.
 
 ## License
 
