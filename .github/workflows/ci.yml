@@ -7,23 +7,25 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.9", "3.11", "3.13"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
         with:
+          version: "0.13.1"
           enable-cache: true
 
       # No `dig` install step: the suite stubs the subprocess call, so no test shells out.
+      # --locked fails the job when uv.lock is stale instead of resolving new versions.
       - name: Install project
-        run: uv sync --extra dev --python ${{ matrix.python-version }}
+        run: uv sync --locked --extra dev --python ${{ matrix.python-version }}
 
       - name: Lint
         run: uv run ruff check .
