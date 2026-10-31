@@ -1,6 +1,6 @@
 [build-system]
 # Pinned exactly, like the dependencies below.
-requires = ["hatchling==1.32.4"]
+requires = ["hatchling==1.33.0"]
 build-backend = "hatchling.build"
 
 [project]
