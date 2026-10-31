@@ -27,7 +27,7 @@ classifiers = [
 dependencies = ["textual==8.2.8", "rich==15.0.0"]
 
 [project.optional-dependencies]
-dev = ["pytest==9.1.1", "pytest-asyncio==1.4.0", "ruff==0.17.1"]
+dev = ["pytest==9.1.1", "pytest-asyncio==1.4.1", "ruff==0.17.1"]
 
 [project.scripts]
 dig-tui = "dig_tui.app:main"
